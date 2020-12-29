@@ -32,7 +32,7 @@ const disconnect = async (force?: boolean): Promise<void> => {
     if (clientInstance === null) {
         return
     }
-    return (clientInstance as MongoClient).close(force)
+    await clientInstance.close(force)
 }
 
 export default {

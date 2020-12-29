@@ -1,16 +1,17 @@
 import { Request, Response } from 'express'
 
-const getAllowedOrigin: Function = (headers: NodeJS.Dict<string>): string => {
-    if (!headers.origin) {
+const getAllowedOrigin = (origin: string): string => {
+    if (origin === '') {
         return '*'
     }
     // you can block origins here,
     // or allow just some of them
-    return headers.origin
+    return origin
 }
 
-export default (request: Request, response: Response, next: Function) => {
-    response.setHeader('Access-Control-Allow-Origin', getAllowedOrigin(request.headers))
+export default (request: Request, response: Response, next: () => void): void => {
+    const origin: string = request.headers.origin || ''
+    response.setHeader('Access-Control-Allow-Origin', getAllowedOrigin(origin))
     response.setHeader('Cache-Control', 'no-store')
     response.setHeader('X-Powered-By', 'Portal')
     response.setHeader('Access-Control-Allow-Credentials', 'true')
