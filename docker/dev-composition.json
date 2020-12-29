@@ -1,0 +1,17 @@
+{
+    "version": "3.7",
+    "services": {
+        "api-mongo": {
+            "container_name": "api-mongo",
+            "image": "mongo:4.4.2-bionic",
+            "ports": [ "27017:27017" ],
+            "volumes": [ "../database:/srv/database" ]
+        },
+        "site-server": {
+            "container_name": "api-server",
+            "image": "api-server-image",
+            "ports": [ "9091:3000" ],
+            "volumes": [ "../:/srv/server" ]
+        }
+    }
+}
