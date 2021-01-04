@@ -11,7 +11,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/xenopont/site.git"
+        "url": "git+https://github.com/xenopont/api-express-mongo.git"
     },
     "author": "Sergei Kovalenko",
     "license": "ISC",

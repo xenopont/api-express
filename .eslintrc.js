@@ -36,5 +36,6 @@ module.exports = {
         'no-multiple-empty-lines': [ 2, { max: 1, maxBOF: 0 } ],
         'no-unused-vars': 'off',
         '@typescript-eslint/no-unused-vars': 'error',
+        //'@typescript-eslint/no-unused-vars': 'error',
     },
 }

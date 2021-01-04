@@ -17,5 +17,5 @@ export default {
     currentEnvironment: environments.prod,
     db,
     environments,
-    welcomeMessage: () => {},
+    welcomeMessage: (): void => { /* an empty method */ },
 }
