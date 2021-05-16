@@ -6,8 +6,9 @@
     "scripts": {
         "build": "node ./node_modules/.bin/tsc",
         "watch": "node ./node_modules/.bin/nodemon",
-        "lint": "node ./node_modules/.bin/eslint ./src/**.ts ./test/**.ts",
-        "test": "node ./node_modules/.bin/mocha --reporter spec --recursive ./test/**/*.test.ts"
+        "lint": "node ./node_modules/.bin/eslint './src/**/*.ts'",
+        "lintfix": "node ./node_modules/.bin/eslint './src/**/*.ts' --fix",
+        "test": "node ./node_modules/.bin/ts-mocha -p ./tsconfig.json ./src/test/**/*.test.ts"
     },
     "repository": {
         "type": "git",

@@ -8,7 +8,7 @@ import log from './log'
 import mongo from './db/mongo'
 import sleep from './sleep'
 
-const checkDbConnection = async (connectionString: string, wait: number = 2): Promise<void> => {
+const checkDbConnection = async (connectionString: string, wait = 2): Promise<void> => {
     log.info('Connecting to the database...')
     if (! await mongo.connect(connectionString)) {
         log.error(`No connection to the database. Shutting down the application in ${wait} seconds.`)
@@ -19,7 +19,7 @@ const checkDbConnection = async (connectionString: string, wait: number = 2): Pr
     log.info('Connection to the database established.')
 }
 
-const startServer = (routes: (app: Express) => void, port: number = 3000, isDev: boolean = false): void => {
+const startServer = (routes: (app: Express) => void, port = 3000, isDev = false): void => {
     log.info('Starting a server...')
     const app: Express = express()
     app.use(bodyParser.json())
@@ -46,7 +46,7 @@ const startServer = (routes: (app: Express) => void, port: number = 3000, isDev:
     })
 }
 
-export const checkDbAndListen = async (connectionString: string, routes: (app: Express) => void, port: number = 3000, isDev: boolean = false): void => {
+export const checkDbAndListen = async (connectionString: string, routes: (app: Express) => void, port = 3000, isDev = false): void => {
 
 }
 

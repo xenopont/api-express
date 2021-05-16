@@ -16,7 +16,7 @@ const main = async (): Promise<void> => {
     // check the db connection
     log.info('Connecting to the database...')
     if (! await mongo.connect(config.db.connectionString)) {
-        const wait: number = 2
+        const wait = 2
         log.error(`No connection to the database. Shutting down the application in ${wait} seconds.`)
         await sleep(wait * 1000)
         process.exit(-1)
