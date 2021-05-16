@@ -12,6 +12,5 @@
         "importHelpers": true,
         "types": [ "node" ],
         "typeRoots": [ "./node_modules/@types", "./node_modules/@typescript-eslint" ]
-    },
-    "exclude": [ "" ]
+    }
 }

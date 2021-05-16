@@ -4,7 +4,7 @@ import express from 'express'
 import bodyParser from 'body-parser'
 
 import config from './config/'
-import cors from './core/cors'
+import cors from './core/http/cors'
 import log from './core/log'
 import mongo from './core/db/mongo'
 import routes from './routes'

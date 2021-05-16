@@ -1,9 +1,10 @@
 import productionConfig from './production'
+import environments from '../core/app/environments';
 
-const currentConfig = { ...productionConfig }
+const devConfig = { ...productionConfig }
 
-currentConfig.PORT = 3000
-currentConfig.currentEnvironment = productionConfig.environments.dev
-currentConfig.db.connectionString = `mongodb://api-mongo:27017/${currentConfig.db.dbName}`
+devConfig.PORT = 3000
+devConfig.currentEnvironment = environments.development
+devConfig.db.connectionString = `mongodb://api-mongo:27017/${devConfig.db.dbName}`
 
-export default currentConfig
+export default devConfig

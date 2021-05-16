@@ -1,4 +1,4 @@
-import environments from './environments'
+import environments from '../core/app/environments'
 
 const db = {
     connectionString: 'not configured',
@@ -12,5 +12,4 @@ export default {
 
     currentEnvironment: environments.prod,
     db,
-    environments,
 }
