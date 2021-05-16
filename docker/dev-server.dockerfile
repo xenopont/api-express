@@ -1,4 +1,4 @@
-FROM node:15.5.0-alpine3.12
+FROM node:16.1.0-alpine3.13
 
 LABEL maintainer="smith404@live.com"
 

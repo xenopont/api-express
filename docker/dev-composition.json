@@ -3,7 +3,7 @@
     "services": {
         "api-mongo": {
             "container_name": "api-mongo",
-            "image": "mongo:4.4.2-bionic",
+            "image": "mongo:4.4.6-bionic",
             "ports": [ "27017:27017" ],
             "volumes": [ "../database:/srv/database" ]
         },
