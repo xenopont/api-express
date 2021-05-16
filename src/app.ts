@@ -3,7 +3,7 @@ import { Express } from 'express-serve-static-core'
 import express from 'express'
 import bodyParser from 'body-parser'
 
-import config from './config/current'
+import config from './config/'
 import cors from './core/cors'
 import log from './core/log'
 import mongo from './core/db/mongo'
@@ -11,6 +11,17 @@ import routes from './routes'
 import sleep from './core/sleep'
 
 const app: Express = express()
+
+const exitApp = (server: Server, mongo: { disconnect(): Promise<void> }, message: string ): void => {
+    server.close((): void => {
+        void (async () => {
+            await mongo.disconnect()
+            console.log() // eslint-disable-line no-console
+            log.info(message)
+            process.exit(0)
+        })()
+    })
+}
 
 const main = async (): Promise<void> => {
     // check the db connection
@@ -26,27 +37,20 @@ const main = async (): Promise<void> => {
 
     // start a server
     log.info('Starting a server...')
-    app.use(bodyParser.json())
+    app.use(bodyParser.json({ strict: false }))
     app.use(cors)
     routes(app)
     const server: Server = app.listen(config.PORT, () => {
-        if (config.currentEnvironment === config.environments.dev) {
-            config.welcomeMessage()
-        }
         log.info(`App listening on port ${config.PORT}!`)
     })
 
     // catch console ^C signal
     process.on('SIGINT', () => {
-        server.close(() => { console.log(); log.info('Process stopped') }) // eslint-disable-line no-console
-        mongo.disconnect()
-        process.exit(0)
+        exitApp(server, mongo, 'Process stopped')
     })
     // catch kubernetes term signal
     process.on('SIGTERM', () => {
-        server.close(() => { console.log(); log.info('Process terminated') }) // eslint-disable-line no-console
-        mongo.disconnect()
-        process.exit(0)
+        exitApp(server, mongo, 'Process terminated')
     })
 }
 

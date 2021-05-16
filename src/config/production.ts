@@ -1,13 +1,9 @@
-const environments = {
-    dev: 'development',
-    prod: 'production',
-}
+import environments from './environments'
 
 const db = {
     connectionString: 'not configured',
-    dbName: 'site',
+    dbName: 'api-db',
     collections: {
-        articles: 'articles',
     },
 }
 
@@ -17,5 +13,4 @@ export default {
     currentEnvironment: environments.prod,
     db,
     environments,
-    welcomeMessage: (): void => { /* an empty method */ },
 }

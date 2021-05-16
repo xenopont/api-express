@@ -14,7 +14,7 @@ const out = (prefix: string, message: string, ...objects: unknown[]): void => {
     if (objects.length > 0) {
         args = [ ...args, ...objects ]
     }
-    console.log(console, ...args) // eslint-disable-line no-console
+    console.log(...args) // eslint-disable-line no-console
 }
 
 export default {
