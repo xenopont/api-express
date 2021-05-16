@@ -21,22 +21,24 @@
     "homepage": "https://github.com/xenopont/api-express-mongo#readme",
     "dependencies": {
         "express": "4.17.1",
-        "mongodb": "3.6.3"
+        "mongodb": "3.6.6"
     },
     "devDependencies": {
-        "@types/express": "latest",
-        "@types/mocha": "latest",
-        "@types/mongodb": "latest",
-        "@types/node": "latest",
-        "@types/sinon": "latest",
-        "@typescript-eslint/eslint-plugin": "latest",
-        "@typescript-eslint/parser": "latest",
-        "eslint": "latest",
-        "mocha": "latest",
-        "nodemon": "latest",
-        "should": "latest",
-        "sinon": "latest",
-        "ts-node": "latest",
-        "typescript": "latest"
+        "@types/expect": "24.3.0",
+        "@types/express": "4.17.11",
+        "@types/mocha": "8.2.2",
+        "@types/mongodb": "3.6.12",
+        "@types/node": "15.3.0",
+        "@types/sinon": "10.0.0",
+        "@typescript-eslint/eslint-plugin": "4.23.0",
+        "@typescript-eslint/parser": "4.23.0",
+        "eslint": "7.26.0",
+        "mocha": "8.4.0",
+        "nodemon": "2.0.7",
+        "should": "13.2.3",
+        "sinon": "10.0.0",
+        "ts-mocha": "8.0.0",
+        "ts-node": "9.1.1",
+        "typescript": "4.2.4"
     }
 }
