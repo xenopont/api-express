@@ -9,6 +9,7 @@ const getAllowedOrigin = (origin: string): string => {
     return origin
 }
 
+// @todo create a method returning this function to filter allowed origins
 export default (request: Request, response: Response, next: () => void): void => {
     const origin: string = request.headers.origin || ''
     response.setHeader('Access-Control-Allow-Origin', getAllowedOrigin(origin))
