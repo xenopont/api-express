@@ -3,8 +3,6 @@ import environments from '../core/app/environments'
 const db = {
     connectionString: 'not configured',
     dbName: 'api-db',
-    collections: {
-    },
 }
 
 export default {

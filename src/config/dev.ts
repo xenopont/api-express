@@ -1,5 +1,5 @@
 import productionConfig from './production'
-import environments from '../core/app/environments';
+import environments from '../core/app/environments'
 
 const devConfig = { ...productionConfig }
 

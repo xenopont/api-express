@@ -1,7 +1,6 @@
 import { Server } from 'http'
 import { Express } from 'express-serve-static-core'
-import express from 'express'
-import bodyParser from 'body-parser'
+import express, { RequestHandler } from 'express'
 
 import config from './config/'
 import cors from './core/http/cors'
@@ -37,7 +36,7 @@ const main = async (): Promise<void> => {
 
     // start a server
     log.info('Starting a server...')
-    app.use(bodyParser.json({ strict: false }))
+    app.use(express.json({ strict: false }) as RequestHandler)
     app.use(cors)
     routes(app)
     const server: Server = app.listen(config.PORT, () => {
